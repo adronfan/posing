@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>摆姿势</title>
+
+	<!-- 新 Bootstrap 核心 CSS 文件 -->
+	<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/scrollTop.css">
+	<link rel="stylesheet" href="css/main.css">
+
+<style>
+@media screen and (max-width: 576px) {
+    .everyCell {
+        height:<%= cellHeightSize[0] %>px;
+    }
+    .jumbotron h1 small {
+        display:none;
+    }
+}
+@media screen and (min-width: 576px) and (max-width: 769px) {
+    .everyCell {
+        height:<%= cellHeightSize[1] %>px;
+    }
+}
+@media screen and (min-width: 769px) {
+    .everyCell {
+        height:<%= cellHeightSize[2] %>px;
+    }
+}
+</style>
+</head>
+<body>
+<!-- 顶部的导航栏 -->
+<header role="banner">
+	<img id="header_img" src="images/logo.jpg">
+    <div id="daohangButton">
+        <span class="dropdown">
+          <button id="the0" class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+              单个人
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+            <li id="the1" role="presentation" onclick="clickNav(1)"><a role="menuitem" tabindex="-1" href="#">女性</a></li>
+            <li id="the2" role="presentation" onclick="clickNav(2)"><a role="menuitem" tabindex="-1" href="#">少妇</a></li>
+            <li id="the3" role="presentation" onclick="clickNav(3)"><a role="menuitem" tabindex="-1" href="#">男性</a></li>
+            <li id="the4" role="presentation" onclick="clickNav(4)"><a role="menuitem" tabindex="-1" href="#">小孩</a></li>
+          </ul>
+        </span>
+
+        <span class="dropdown">
+          <button id="the9" class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+              多个人
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+            <li id="the5" role="presentation" onclick="clickNav(5)"><a role="menuitem" tabindex="-1" href="#">婚礼</a></li>
+            <li id="the6" role="presentation" onclick="clickNav(6)"><a role="menuitem" tabindex="-1" href="#">夫妻</a></li>
+            <li id="the7" role="presentation" onclick="clickNav(7)"><a role="menuitem" tabindex="-1" href="#">小组</a></li>
+          </ul>
+        </span>
+
+        <span>
+            <button id="the8" class="btn btn-default" type="submit" onclick="clickNav(8)">技巧片</button>
+        </span>
+    </div>
+</header>
+
+<ol class="breadcrumb">
+  <% for(var i = 0; i < currentCellName.length; i++) { %>
+    <li class="active"><%= currentCellName[i] %></li>
+  <% } %>
+
+</ol>
+
+<div class="jumbotron">
+    <h1><%= wantWords[0] %> <small><%= wantWords[1] %> </small></h1>
+  <p><%= wantWords[2] %></p>
+</div>
+
+<!-- 栅格布局 产品展示 -->
+<div class="container">
+   <div class="row">
+       <% var allPic = imgNums %>
+       <% for(var i = 0; i < allPic; i++) { %>
+        <div class="col-xs-6 col-sm-4 col-lg-3 col-md-3 every">
+            <div class="containTheContents everyCell">
+                <span><img class="img-rounded" src="images/<%= whichNumEnglish %>/<%= i %>.gif"></span>
+                <p>第<%= i + 1 %>张
+            </div>
+        </div>
+        <% } %>
+   </div>
+</div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+	<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <!-- 导航栏具有隐藏和展示的效果在上下滚动网页的时候 -->
+	<script  type="text/javascript"  src="js/headroom.min.js"></script>
+	<script  type="text/javascript"  src="js/jQuery.headroom.min.js"></script>
+    <!-- 自定义公共的js -->
+	<script  type="text/javascript"  src="js/main.js"></script>
+
+	<script>
+      //导航栏具有隐藏和展示的效果在上下滚动网页的时候
+	  $("header").headroom({
+	    "tolerance": 5,
+	    "offset": 5,
+	    "classes": {
+        "initial": "headroom",
+	    "pinned": "slideDown",
+        "unpinned": "slideUp"
+	    }
+	  });
+	</script>
+
+    <script>
+        var currentNum = <%= whichNum %>;
+        var barId = "the" + currentNum;
+        $("#" + barId).addClass("btn-success");
+        if(currentNum <= 4) {
+            $("#the0").addClass("btn-success");
+        } else if(currentNum <= 7) {
+            $("#the9").addClass("btn-success");
+        }
+    </script>
+  </body>
+</html>
+

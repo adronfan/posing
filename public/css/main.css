@@ -1,0 +1,122 @@
+@media screen and (max-width: 768px) {
+    header {
+    	width:100%;
+    	height:96px;
+        background-color:white;
+        border:0px solid red;
+        z-index:9999;
+    }
+    header #header_img {
+        display:block;
+        margin:auto;
+        margin-top:10px;
+    }
+    header #daohangButton{
+        height:37px;
+        margin:auto;
+        margin-top:4px;
+        border:0px solid red;
+        text-align:center;
+    }
+    header #daohangButton span{
+        margin-right:10px;
+    }
+}
+@media screen and (min-width: 769px) {
+    header {
+    	width:100%;
+    	height:80px;
+        background-color:white;
+        border:0px solid red;
+        z-index:9999;
+    }
+    header #header_img {
+        float:left;
+        margin-top:30px;
+        margin-left:50px;
+    }
+    header #daohangButton{
+    	float:right;
+        margin-top:38px;
+        margin-right:20px;
+        border:0px solid red;
+    }
+    header #dohangButton div{
+        float:left;
+        margin-right:20px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .headroom {position: fixed;top: 0;left: 0;right: 0;transition: all .2s ease-in-out;}
+    .slideUp {top: -55px;animation-name:slideUp;}
+    .slideDown {top: 0;}
+}
+@media screen and (min-width: 769px) {
+    .headroom {position: fixed;top: 0;left: 0;right: 0;transition: all .2s ease-in-out;}
+    .slideUp {top: -25px;animation-name:slideUp;}
+    .slideDown {top: 0;}
+}
+
+ /* 首页 */
+.breadcrumb {
+    margin-top:96px;
+}
+
+.jumbotron {
+    margin-top:-20px;
+    padding-left:30px;
+    padding-right:30px;
+}
+
+.container img {
+    margin:0;
+    padding:0;
+    width:100%;
+}
+
+@media screen and (max-width: 768px) {
+    .every {
+        margin:0px;
+        padding:0px;
+    }
+    .everyCell {
+        border:0px solid #7d8080;
+        margin:0px;
+        padding:4px;
+    }
+    .everyCell img {
+        border:1px solid #7d8080;
+        padding:4px;
+    }
+    .everyCell p {
+        color:#7d8080;
+        width:100%;
+        text-align:center;
+        margin-top:3px;
+    }
+}
+@media screen and (min-width: 769px) {
+    .every {
+        margin:0px;
+        padding:0px;
+    }
+    .everyCell {
+        border:0px solid red;
+        margin:0px;
+        padding:4px;
+    	display: table-cell;
+    	vertical-align:middle;
+    }
+    .everyCell img {
+        border:1px solid #7d8080;
+        vertical-align:middle;
+        padding:5px;
+    }
+    .everyCell p {
+        color:#7d8080;
+        width:100%;
+        text-align:center;
+        margin-top:3px;
+    }
+}
